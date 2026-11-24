@@ -886,7 +886,7 @@ class SalesTests(unittest.TestCase):
         self.assertEqual(self.request('/api/profile')[1]['name'], '王总')
         self.assertEqual(self.request('/api/profile', 'POST', {'name': ' '})[0], 400)
         self.assertEqual(self.request('/api/profile', 'POST', {'name': '李明', 'phone': []})[0], 400)
-        payload = {'name': '李明', 'role': '销售经理', 'company': '示例公司', 'phone': '13800000000', 'email': 'li@example.com'}
+        payload = {'name': '李明', 'role': '销售经理', 'company': '示例公司', 'phone': '13800000001', 'email': 'li@example.com'}
         self.assertEqual(self.request('/api/profile', 'POST', payload), (200, payload))
         main.init_db()
         self.assertEqual(self.request('/api/profile')[1], payload)
